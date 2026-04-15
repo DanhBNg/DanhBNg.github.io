@@ -3,60 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Công Việc Mới</title>
+    <title>Danh sách Dự án</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
-        .app-container { width: 100%; max-width: 400px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow-y: auto; }
-        .app-bar { padding: 16px; background: #1976D2; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; position: sticky; top: 0; z-index: 10; }
-        .back-btn { margin-right: 16px; text-decoration: none; color: white; font-size: 24px; }
-        .content { padding: 24px; }
-        .input-group { margin-bottom: 16px; position: relative; }
-        .input-group input, .input-group textarea, .input-group select { width: 100%; padding: 16px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; font-family: inherit; background: white; }
-        .input-icon { position: absolute; right: 16px; top: 16px; color: #1976D2; pointer-events: none; }
+        .app-container { width: 100%; max-width: 400px; background: #fafafa; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; height: 100vh; overflow: hidden; }
         
-        .list-tile { border: 1px solid #ccc; border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; cursor: pointer; margin-bottom: 32px; }
-        .list-tile-icon { color: #1976D2; font-size: 24px; margin-right: 16px; }
-        .list-tile-content { flex: 1; }
-        .list-tile-title { font-size: 16px; color: #333; }
-        .list-tile-subtitle { font-size: 14px; color: #666; margin-top: 4px; }
-        .list-tile-trailing { color: #666; }
+        /* App Bar */
+        .app-bar { padding: 16px; background: #1976D2; color: white; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 10; }
+        .app-bar-left { display: flex; align-items: center; font-size: 20px; font-weight: bold; }
+        .menu-btn { font-size: 24px; cursor: pointer; margin-right: 16px; }
+        .notification { position: relative; cursor: pointer; font-size: 24px; }
+        .badge { position: absolute; top: -4px; right: -4px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 10px; font-weight: bold; }
+        
+        /* Body Content */
+        .content { padding: 16px; flex: 1; overflow-y: auto; }
+        
+        /* Project Card */
+        .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); margin-bottom: 12px; display: flex; align-items: center; padding: 16px; cursor: pointer; }
+        .card-content { flex: 1; overflow: hidden; }
+        .card-title { font-size: 16px; font-weight: bold; color: #333; margin: 0 0 4px 0; }
+        .card-subtitle { font-size: 14px; color: #666; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-arrow { color: #999; font-weight: bold; margin-left: 12px; }
 
-        .btn-primary { width: 100%; padding: 16px; background-color: #1976D2; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; height: 50px; }
+        /* Floating Action Button */
+        .fab { position: absolute; bottom: 24px; right: 24px; width: 56px; height: 56px; background-color: #1976D2; border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-size: 28px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; border: none; }
     </style>
 </head>
 <body>
     <div class="app-container">
         <div class="app-bar">
-            <a href="#" class="back-btn">&#8592;</a>
-            Thêm Công Việc Mới
+            <div class="app-bar-left">
+                <span class="menu-btn">&#9776;</span> Danh sách Dự án
+            </div>
+            <div class="notification">
+                &#128276; <span class="badge">2</span>
+            </div>
         </div>
+
         <div class="content">
-            <div class="input-group">
-                <input type="text" placeholder="Tên Task *">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Dự án Alpha</h3>
+                    <p class="card-subtitle">Mô tả ngắn gọn về dự án này...</p>
+                </div>
+                <div class="card-arrow">&#10095;</div>
             </div>
-            <div class="input-group">
-                <textarea rows="3" placeholder="Mô tả chi tiết"></textarea>
-            </div>
-            <div class="input-group">
-                <input type="date" placeholder="Hạn chót (Deadline)">
-            </div>
-            <div class="input-group">
-                <select>
-                    <option value="Low">Low</option>
-                    <option value="Medium" selected>Medium</option>
-                    <option value="High">High</option>
-                </select>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Dự án Beta</h3>
+                    <p class="card-subtitle">Đây là một dự án khác có mô tả dài hơn một chút để test overflow.</p>
+                </div>
+                <div class="card-arrow">&#10095;</div>
             </div>
             
-            <div class="list-tile">
-                <div class="list-tile-icon">&#128101;</div> <div class="list-tile-content">
-                    <div class="list-tile-title">Người thực hiện</div>
-                    <div class="list-tile-subtitle">Chưa phân công</div>
-                </div>
-                <div class="list-tile-trailing">&#9998;</div> </div>
+            </div>
 
-            <button class="btn-primary">Thêm Task</button>
-        </div>
+        <button class="fab">+</button>
     </div>
 </body>
 </html>
