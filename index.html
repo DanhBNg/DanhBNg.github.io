@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký</title>
+    <title>Tạo Dự án mới</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
         .app-container { width: 100%; max-width: 400px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
-        .app-bar { padding: 16px; background: white; color: black; font-size: 20px; font-weight: bold; border-bottom: 1px solid #eee; display: flex; align-items: center; }
-        .back-btn { margin-right: 16px; text-decoration: none; color: black; font-size: 24px; }
-        .content { padding: 24px; flex: 1; }
+        .app-bar { padding: 16px; background: #1976D2; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; }
+        .back-btn { margin-right: 16px; text-decoration: none; color: white; font-size: 24px; }
+        .content { padding: 24px; }
         .input-group { margin-bottom: 16px; }
-        .input-group input { width: 100%; padding: 16px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        .input-group input, .input-group textarea { width: 100%; padding: 16px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; font-family: inherit; }
         .btn-primary { width: 100%; padding: 16px; background-color: #1976D2; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; margin-top: 8px; }
     </style>
 </head>
@@ -19,20 +19,17 @@
     <div class="app-container">
         <div class="app-bar">
             <a href="#" class="back-btn">&#8592;</a>
-            Đăng Ký
+            Tạo Dự án mới
         </div>
         <div class="content">
             <div class="input-group">
-                <input type="text" placeholder="Họ và tên">
+                <input type="text" placeholder="Tên dự án *">
             </div>
             <div class="input-group">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Mật khẩu">
+                <textarea rows="3" placeholder="Mô tả"></textarea>
             </div>
             
-            <button class="btn-primary">Tạo Tài Khoản</button>
+            <button class="btn-primary">Tạo dự án</button>
         </div>
     </div>
 </body>
